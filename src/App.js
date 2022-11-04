@@ -1,41 +1,29 @@
-import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
+import React, { useState, createContext } from 'react';
+import { Box } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+
+import Piano from './components/Piano';
+import { generateKeys } from './helpers';
+import { allKeys } from './helpers/constants';
+
+export const PianoContext = createContext();
 
 function App() {
+  const [activeKey, setActiveKey] = useState('');
+  const keys = generateKeys(allKeys);
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
+    <PianoContext.Provider
+      value={{
+        activeKey,
+        setActiveKey,
+        keys,
+      }}
+    >
+      <Box textAlign="center" fontSize="xl" h="100vh" w="100vw">
+        <ColorModeSwitcher justifySelf="flex-end" />
+        <Piano />
       </Box>
-    </ChakraProvider>
+    </PianoContext.Provider>
   );
 }
 
