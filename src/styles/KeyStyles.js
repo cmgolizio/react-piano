@@ -19,7 +19,8 @@ const KeyStyles = defineStyleConfig({
     borderBottom: '1px solid hsl(0, 0%, 73%)',
     outline: 'none',
     _active: {
-      bg: '#b2f4ff',
+      bgGradient:
+        'radial-gradient(ellipse at center, #00FFEE 0%, #7CFFFE 52%, #E7FEFF 100%)',
       borderX: '3px solid #67d5e8',
       borderBottom: '2px solid #67d5e8',
       outline: 'none',
@@ -51,7 +52,8 @@ const KeyStyles = defineStyleConfig({
       border: '1px solid #000000',
       zIndex: '2',
       _active: {
-        bg: '#9ff1ff',
+        bgGradient:
+          'radial-gradient(ellipse at center, #00FFEE 0%, #7CFFFE 52%, #E7FEFF 100%)',
         color: '#16161D',
         borderX: '3px solid #67d5e8',
         borderBottom: '2px solid #67d5e8',

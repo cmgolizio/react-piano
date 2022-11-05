@@ -42,6 +42,7 @@ const Key = (props) => {
       __css={styles}
       variant={keyType}
       onClick={(e) => handleClick(e)}
+      onTouchStart={(e) => handleClick(e)}
       onKeyDown={(e) => handleKeyPress(e)}
       onKeyUp={() => setActiveKey('')}
       {...rest}
